@@ -1,10 +1,11 @@
 from flask import make_response, abort
 from products_config import productsDB
+from products_models import Product, ProductSchema
 
 def read_all():
     product = Product.query.order_by(Product.productName).all()
     products_schema = ProductSchema(many=True)
-    data = products_schema.dump(product).data
+    data = products_schema.dump(product)
     return data
 
 def read_one(productID):

@@ -1,4 +1,5 @@
 from flask import render_template
+
 import products_config
 
 connex_app = products_config.connex_app

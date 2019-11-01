@@ -13,7 +13,7 @@ basePath: "/api"
 paths:
   /products:
     get:
-      operationId: "products_swagger.read_all"
+      operationId: "products_api.read_all"
       tags:
         - "Products"
       summary: "read the entire set of products database, sorted by the product name"
@@ -48,7 +48,7 @@ paths:
                   description: "Quantity of the offered product"
 
     post:
-      operationId: "product_api.create"
+      operationId: "products_api.create"
       tags:
         - "Products"
       summary: "Creates a new product entry"
@@ -112,7 +112,7 @@ paths:
 
   /products/{productID}:
     get:
-      operationId: "product_api.read_one"
+      operationId: "products_api.read_one"
       tags:
         - "products"
       summary: "Read one product from the products DB"
@@ -152,7 +152,7 @@ paths:
                 description: "Quantity of the offered product"
 
     put:
-      operationId: "product_api.update"
+      operationId: "products_api.update"
       tags:
         - "products"
       summary: "Update a product"
@@ -217,7 +217,7 @@ paths:
                 description: "Quantity of the offered product"
 
     delete:
-      operationId: "product_api.delete"
+      operationId: "products_api.delete"
       tags:
         - "products"
       summary: "Delete a product entry from the products list"
