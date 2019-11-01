@@ -1,0 +1,233 @@
+swagger: "2.0"
+info:
+  description: "This is the swagger file that will go with the server code. - adoptPets"
+  version: "1.0.0"
+  title: "Swagger REST"
+consumes:
+  - "application/json"
+produces:
+  - "applicaton/json"
+
+basePath: "/api"
+
+paths:
+  /rest-api:
+    get:
+      operationId: "rest-api.read_all_adopts"
+      tags:
+        - "adopt"
+      summary: "read the entire set of adoptPets databse, sorted by the pet name"
+      description: "read the entire set of adoptPets database, sorted by the pet name"
+      responses:
+        200:
+          description: "Successful read adoptPets set operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                adoptID:
+                  type: "string"
+                  description: "ID of the rehomming pet"
+                adoptName:
+                  type: "string"
+                  description: "Name of the pet"
+                adoptType:
+                  type: "string"
+                  description: "Type of the pet"
+                adoptBreed:
+                  type: "string"
+                  description: "Breed of the was produced"
+                adoptDesc:
+                  type: "string"
+                  description: "Description of the pet"
+                adoptApperance:
+                  type: "string"
+                  description: "Apperance of the pet"
+                adoptGender:
+                  type: "string"
+                  description: "Gender of the pet"
+
+    post:
+      operationId: "rest-api.create_adopt"
+      tags:
+        - "adopt"
+      summary: "Creates a new rehomming submission"
+      description: "Create a new pet for rehomming in the database"
+      parameters:
+        - name: "adopt"
+          in: "body"
+          description: "pet to create"
+          required: True
+          schema:
+            type: "object"
+            properties:
+              adoptID:
+                type: "string"
+                description: "ID of the rehomming pet"
+              adoptName:
+                type: "string"
+                description: "Name of the pet"
+              adoptType:
+                type: "string"
+                description: "Type of the pet"
+              adoptBreed:
+                type: "string"
+                description: "Breed of the was produced"
+              adoptDesc:
+                type: "string"
+                description: "Description of the pet"
+              adoptApperance:
+                type: "string"
+                description: "Apperance of the pet"
+              adoptGender:
+                type: "string"
+                description: "Gender of the pet"
+
+      responses:
+        201:
+          description: "Successfully created a pet"
+          schema:
+            properties:
+              adoptID:
+                type: "string"
+                description: "ID of the rehomming pet"
+              adoptName:
+                type: "string"
+                description: "Name of the pet"
+              adoptType:
+                type: "string"
+                description: "Type of the pet"
+              adoptBreed:
+                type: "string"
+                description: "Breed of the was produced"
+              adoptDesc:
+                type: "string"
+                description: "Description of the pet"
+              adoptApperance:
+                type: "string"
+                description: "Apperance of the pet"
+              adoptGender:
+                type: "string"
+                description: "Gender of the pet"
+
+  /adopt/{adoptID}:
+    get:
+      operationId: "rest-api.read_one_adopt"
+      tags:
+        - "adoptID"
+      summary: "Read one pet from the adoptPets DB"
+      description: "Read one pet"
+      parameters:
+        - name: "adoptID"
+          in: "path"
+          description: "ID of the pet to get"
+          type: "integer"
+          required: True
+      responses:
+        200:
+          description: "Successfully read a pet from adoptPets data operation"
+          schema:
+            type: "object"
+            properties:
+              adoptID:
+                type: "string"
+                description: "ID of the rehomming pet"
+              adoptName:
+                type: "string"
+                description: "Name of the pet"
+              adoptType:
+                type: "string"
+                description: "Type of the pet"
+              adoptBreed:
+                type: "string"
+                description: "Breed of the was produced"
+              adoptDesc:
+                type: "string"
+                description: "Description of the pet"
+              adoptApperance:
+                type: "string"
+                description: "Apperance of the pet"
+              adoptGender:
+                type: "string"
+                description: "Gender of the pet"
+
+    put:
+      operationId: "rest-api.update_adopt"
+      tags:
+        - "adoptPets"
+      summary: "Update a pet"
+      description: "Update a pet"
+      parameters:
+        - name: "adoptID"
+          in: "path"
+          description: "ID the pet to update"
+          type: "integer"
+          required: True
+        - name: "adoptPets"
+          in: "body"
+          schema:
+            type: "object"
+            properties:
+              adoptID:
+                type: "string"
+                description: "ID of the rehomming pet"
+              adoptName:
+                type: "string"
+                description: "Name of the pet"
+              adoptType:
+                type: "string"
+                description: "Type of the pet"
+              adoptBreed:
+                type: "string"
+                description: "Breed of the was produced"
+              adoptDesc:
+                type: "string"
+                description: "Description of the pet"
+              adoptApperance:
+                type: "string"
+                description: "Apperance of the pet"
+              adoptGender:
+                type: "string"
+                description: "Gender of the pet"
+      responses:
+        200:
+          description: "Successfully updated pet"
+          schema:
+            properties:
+              adoptID:
+                type: "string"
+                description: "ID of the rehomming pet"
+              adoptName:
+                type: "string"
+                description: "Name of the pet"
+              adoptType:
+                type: "string"
+                description: "Type of the pet"
+              adoptBreed:
+                type: "string"
+                description: "Breed of the was produced"
+              adoptDesc:
+                type: "string"
+                description: "Description of the pet"
+              adoptApperance:
+                type: "string"
+                description: "Apperance of the pet"
+              adoptGender:
+                type: "string"
+                description: "Gender of the pet"
+
+    delete:
+      operationId: "rest-api.delete_adopt"
+      tags:
+        - "adoptPets"
+      summary: "Delete a pet entry from the adoptPets list"
+      description: "Delete a pet"
+      parameters:
+        - name: "adoptID"
+          in: "path"
+          type: "integer"
+          description: "ID of the pet entry to delete"
+          required: true
+      responses:
+        200:
+          description: "Successfully deleted a pet"

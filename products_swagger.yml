@@ -1,0 +1,233 @@
+swagger: "2.0"
+info:
+  description: "This is the swagger file that will go with the server code. - products"
+  version: "1.0.0"
+  title: "Swagger REST"
+consumes:
+  - "application/json"
+produces:
+  - "applicaton/json"
+
+basePath: "/api"
+
+paths:
+  /products:
+    get:
+      operationId: "products_swagger.read_all"
+      tags:
+        - "Products"
+      summary: "read the entire set of products database, sorted by the product name"
+      description: "read the entire set of products database, sorted by the products name"
+      responses:
+        200:
+          description: "Successful reading products set operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                productsID:
+                  type: "string"
+                  description: "ID of the product"
+                productsName:
+                  type: "string"
+                  description: "Name of the product"
+                productsDesc:
+                  type: "string"
+                  description: "Description of the product"
+                productScale:
+                  type: "string"
+                  description: "Size or weight measurements of the product"
+                productsCost:
+                  type: "string"
+                  description: "Cost of the product"
+                productsCurrentSale:
+                  type: "string"
+                  description: "Discounted Price of the product"
+                productsStock:
+                  type: "string"
+                  description: "Quantity of the offered product"
+
+    post:
+      operationId: "product_api.create"
+      tags:
+        - "Products"
+      summary: "Creates a new product entry"
+      description: "Create a new product in the database"
+      parameters:
+        - name: "products"
+          in: "body"
+          description: "product to create"
+          required: True
+          schema:
+            type: "object"
+            properties:
+              productsID:
+                type: "string"
+                description: "ID of the product"
+              productsName:
+                type: "string"
+                description: "Name of the product"
+              productsDesc:
+                type: "string"
+                description: "Description of the product"
+              productScale:
+                type: "string"
+                description: "Size or weight measurements of the product"
+              productsCost:
+                type: "string"
+                description: "Cost of the product"
+              productsCurrentSale:
+                type: "string"
+                description: "Discounted Price of the product"
+              productsStock:
+                type: "string"
+                description: "Quantity of the offered product"
+
+      responses:
+        201:
+          description: "Successfully created a product"
+          schema:
+            properties:
+              productsID:
+                type: "string"
+                description: "ID of the product"
+              productsName:
+                type: "string"
+                description: "Name of the product"
+              productsDesc:
+                type: "string"
+                description: "Description of the product"
+              productScale:
+                type: "string"
+                description: "Size or weight measurements of the product"
+              productsCost:
+                type: "string"
+                description: "Cost of the product"
+              productsCurrentSale:
+                type: "string"
+                description: "Discounted Price of the product"
+              productsStock:
+                type: "string"
+                description: "Quantity of the offered product"
+
+  /products/{productID}:
+    get:
+      operationId: "product_api.read_one"
+      tags:
+        - "products"
+      summary: "Read one product from the products DB"
+      description: "Read one product"
+      parameters:
+        - name: "productID"
+          in: "path"
+          description: "ID of the product to get"
+          type: "integer"
+          required: True
+      responses:
+        200:
+          description: "Successfully read a product from products data operation"
+          schema:
+            type: "object"
+            properties:
+              productsID:
+                type: "string"
+                description: "ID of the product"
+              productsName:
+                type: "string"
+                description: "Name of the product"
+              productsDesc:
+                type: "string"
+                description: "Description of the product"
+              productScale:
+                type: "string"
+                description: "Size or weight measurements of the product"
+              productsCost:
+                type: "string"
+                description: "Cost of the product"
+              productsCurrentSale:
+                type: "string"
+                description: "Discounted Price of the product"
+              productsStock:
+                type: "string"
+                description: "Quantity of the offered product"
+
+    put:
+      operationId: "product_api.update"
+      tags:
+        - "products"
+      summary: "Update a product"
+      description: "Update a product"
+      parameters:
+        - name: "productID"
+          in: "path"
+          description: "ID the product to update"
+          type: "integer"
+          required: True
+        - name: "products"
+          in: "body"
+          schema:
+            type: "object"
+            properties:
+              productsID:
+                type: "string"
+                description: "ID of the product"
+              productsName:
+                type: "string"
+                description: "Name of the product"
+              productsDesc:
+                type: "string"
+                description: "Description of the product"
+              productScale:
+                type: "string"
+                description: "Size or weight measurements of the product"
+              productsCost:
+                type: "string"
+                description: "Cost of the product"
+              productsCurrentSale:
+                type: "string"
+                description: "Discounted Price of the product"
+              productsStock:
+                type: "string"
+                description: "Quantity of the offered product"
+      responses:
+        200:
+          description: "Successfully updated product"
+          schema:
+            properties:
+              productsID:
+                type: "string"
+                description: "ID of the product"
+              productsName:
+                type: "string"
+                description: "Name of the product"
+              productsDesc:
+                type: "string"
+                description: "Description of the product"
+              productScale:
+                type: "string"
+                description: "Size or weight measurements of the product"
+              productsCost:
+                type: "string"
+                description: "Cost of the product"
+              productsCurrentSale:
+                type: "string"
+                description: "Discounted Price of the product"
+              productsStock:
+                type: "string"
+                description: "Quantity of the offered product"
+
+    delete:
+      operationId: "product_api.delete"
+      tags:
+        - "products"
+      summary: "Delete a product entry from the products list"
+      description: "Delete a product"
+      parameters:
+        - name: "productID"
+          in: "path"
+          type: "integer"
+          description: "ID of the product entry to delete"
+          required: true
+      responses:
+        200:
+          description: "Successfully deleted a product"

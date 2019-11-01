@@ -1,0 +1,287 @@
+swagger: "2.0"
+info:
+  description: "This is the swagger file that will go with the server code. - userAccount"
+  version: "1.0.0"
+  title: "Swagger REST"
+consumes:
+  - "application/json"
+produces:
+  - "applicaton/json"
+
+basePath: "/api"
+
+paths:
+  /rest-api:
+    get:
+      operationId: "rest-api.read_all_users"
+      tags:
+        - "user"
+      summary: "read the entire set of userAccount database, sorted by the user name"
+      description: "read the entire set of userAccount database, sorted by the userAccount name"
+      responses:
+        200:
+          description: "Successful reading user set operation"
+          schema:
+            type: "array"
+            items:
+              properties:
+                userID:
+                  type: "string"
+                  description: "ID of the user"
+                userName:
+                  type: "string"
+                  description: "User name of the user"
+                userFirst:
+                  type: "string"
+                  description: "First name of the user"
+                userLast:
+                  type: "string"
+                  description: "Last name of the user"
+                userPhone:
+                  type: "string"
+                  description: "Phone number of the user"
+                userEmail:
+                  type: "string"
+                  description: "Email address of the user"
+                userAddress:
+                  type: "string"
+                  description: "Home address of the user"
+                userAddress2:
+                  type: "string"
+                  description: "Secondary home address of the user - optional"
+                userState:
+                  type: "string"
+                  description: "State the user lives in"
+                userZip:
+                  type: "string"
+                  description: "Zipcode of the user"
+
+    post:
+      operationId: "rest-api.create_user"
+      tags:
+        - "user"
+      summary: "Creates a new user entry"
+      description: "Create a new user in the database"
+      parameters:
+        - name: "userAccount"
+          in: "body"
+          description: "user to create"
+          required: True
+          schema:
+            type: "object"
+            properties:
+              userID:
+                type: "string"
+                description: "ID of the user"
+              userName:
+                type: "string"
+                description: "User name of the user"
+              userFirst:
+                type: "string"
+                description: "First name of the user"
+              userLast:
+                type: "string"
+                description: "Last name of the user"
+              userPhone:
+                type: "string"
+                description: "Phone number of the user"
+              userEmail:
+                type: "string"
+                description: "Email address of the user"
+              userAddress:
+                type: "string"
+                description: "Home address of the user"
+              userAddress2:
+                type: "string"
+                description: "Secondary home address of the user - optional"
+              userState:
+                type: "string"
+                description: "State the user lives in"
+              userZip:
+                type: "string"
+                description: "Zipcode of the user"
+
+      responses:
+        201:
+          description: "Successfully created a user"
+          schema:
+            properties:
+              userID:
+                type: "string"
+                description: "ID of the user"
+              userName:
+                type: "string"
+                description: "User name of the user"
+              userFirst:
+                type: "string"
+                description: "First name of the user"
+              userLast:
+                type: "string"
+                description: "Last name of the user"
+              userPhone:
+                type: "string"
+                description: "Phone number of the user"
+              userEmail:
+                type: "string"
+                description: "Email address of the user"
+              userAddress:
+                type: "string"
+                description: "Home address of the user"
+              userAddress2:
+                type: "string"
+                description: "Secondary home address of the user - optional"
+              userState:
+                type: "string"
+                description: "State the user lives in"
+              userZip:
+                type: "string"
+                description: "Zipcode of the user"
+
+  /user/{userID}:
+    get:
+      operationId: "rest-api.read_one_user"
+      tags:
+        - "userAccount"
+      summary: "Read one user from the userAccount DB"
+      description: "Read one user"
+      parameters:
+        - name: "userID"
+          in: "path"
+          description: "ID of the user to get"
+          type: "integer"
+          required: True
+      responses:
+        200:
+          description: "Successfully read a user from userAccount data operation"
+          schema:
+            type: "object"
+            properties:
+              userID:
+                type: "string"
+                description: "ID of the user"
+              userName:
+                type: "string"
+                description: "User name of the user"
+              userFirst:
+                type: "string"
+                description: "First name of the user"
+              userLast:
+                type: "string"
+                description: "Last name of the user"
+              userPhone:
+                type: "string"
+                description: "Phone number of the user"
+              userEmail:
+                type: "string"
+                description: "Email address of the user"
+              userAddress:
+                type: "string"
+                description: "Home address of the user"
+              userAddress2:
+                type: "string"
+                description: "Secondary home address of the user - optional"
+              userState:
+                type: "string"
+                description: "State the user lives in"
+              userZip:
+                type: "string"
+                description: "Zipcode of the user"
+
+    put:
+      operationId: "rest-api.update_user"
+      tags:
+        - "user"
+      summary: "Update a user"
+      description: "Update a user"
+      parameters:
+        - name: "userID"
+          in: "path"
+          description: "ID the user to update"
+          type: "integer"
+          required: True
+        - name: "userAccount"
+          in: "body"
+          schema:
+            type: "object"
+            properties:
+              userID:
+                type: "string"
+                description: "ID of the user"
+              userName:
+                type: "string"
+                description: "User name of the user"
+              userFirst:
+                type: "string"
+                description: "First name of the user"
+              userLast:
+                type: "string"
+                description: "Last name of the user"
+              userPhone:
+                type: "string"
+                description: "Phone number of the user"
+              userEmail:
+                type: "string"
+                description: "Email address of the user"
+              userAddress:
+                type: "string"
+                description: "Home address of the user"
+              userAddress2:
+                type: "string"
+                description: "Secondary home address of the user - optional"
+              userState:
+                type: "string"
+                description: "State the user lives in"
+              userZip:
+                type: "string"
+                description: "Zipcode of the user"
+      responses:
+        200:
+          description: "Successfully updated a user"
+          schema:
+            properties:
+              userID:
+                type: "string"
+                description: "ID of the user"
+              userName:
+                type: "string"
+                description: "User name of the user"
+              userFirst:
+                type: "string"
+                description: "First name of the user"
+              userLast:
+                type: "string"
+                description: "Last name of the user"
+              userPhone:
+                type: "string"
+                description: "Phone number of the user"
+              userEmail:
+                type: "string"
+                description: "Email address of the user"
+              userAddress:
+                type: "string"
+                description: "Home address of the user"
+              userAddress2:
+                type: "string"
+                description: "Secondary home address of the user - optional"
+              userState:
+                type: "string"
+                description: "State the user lives in"
+              userZip:
+                type: "string"
+                description: "Zipcode of the user"
+
+    delete:
+      operationId: "rest-api.delete_user"
+      tags:
+        - "user"
+      summary: "Delete a user entry from the userAccount list"
+      description: "Delete a user"
+      parameters:
+        - name: "userID"
+          in: "path"
+          type: "integer"
+          description: "ID of the user entry to delete"
+          required: true
+      responses:
+        200:
+          description: "Successfully deleted a user"
