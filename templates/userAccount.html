@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="../static/css/home.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="banner">User Accounts Database Admin Interface</h1>
+        <div class="section editor">
+            <input id="userID" type="hidden" value="" />
+            <label for="userName">User Name
+                <input id="uname" type="text" />
+            </label>
+            <br />
+            <label for="userFirst">First Name
+                <input id="userFirst" type="text" />
+            </label>
+            <br />
+            <label for="userLast">Last Name
+                <input id="userLast" type="text" />
+            </label>
+            <br />
+            <label for="userPhone">Phone Number
+                <input id="userPhone" type="text" />
+            </label>
+            <br />
+            <label for="userEmail">Email
+                <input id="userEmail" type="text" />
+            </label>
+            <br />
+            <label for="userAddress">Address
+                <input id="userAddress" type="text" />
+            </label>
+            <br />
+            <label for="userAddress2">Address 2
+                <input id="userAddress2" type="text" />
+            </label>
+            <br />
+            <label for="userState">State
+                <input id="userState" type="text" />
+            </label>
+            <br />
+            <label for="userZip">Zipcode
+                <input id="userZip" type="text" />
+            </label>
+            <br />
+            <button id="create">Create</button>
+            <button id="update">Update</button>
+            <button id="delete">Delete</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="users">
+            <table>
+                <caption>Users</caption>
+                <thead>
+                    <tr>
+                        <th>User Name</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Phone Number</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                        <th>Address 2</th>
+                        <th>State</th>
+                        <th>Zipcode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+</body>
+<script src="../static/js/userAccount.js"></script>
+</html>
